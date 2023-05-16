@@ -1,0 +1,4 @@
+Connection established to port 1234
+Message sent to port 1234: STORE SomeFile1 35
+Store operation started for file SomeFile1
+Timeout expired while reading from port 1234

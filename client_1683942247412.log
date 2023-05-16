@@ -1,0 +1,79 @@
+Connection established to port 12345
+Message sent to port 12345: LIST
+List operation started
+Timeout expired while reading from port 12345
+List operation failed
+Message sent to port 12345: STORE SomeFile1 35
+Store operation started for file SomeFile1
+Message received from port 12345: STORE_TO 12346 12347 12348
+Controller replied to store SomeFile1 in these Dstores: 12346 12347 12348 
+Connection established to port 12346
+Message sent to port 12346: STORE SomeFile1 35
+Storing file SomeFile1 to Dstore 12346
+Message received from port 12346: ACK
+ACK received from Dstore 12346 to store file SomeFile1
+Store of file SomeFile1 to Dstore 12346 successfully completed
+Connection established to port 12347
+Message sent to port 12347: STORE SomeFile1 35
+Storing file SomeFile1 to Dstore 12347
+Message received from port 12347: ACK
+ACK received from Dstore 12347 to store file SomeFile1
+Store of file SomeFile1 to Dstore 12347 successfully completed
+Connection established to port 12348
+Message sent to port 12348: STORE SomeFile1 35
+Storing file SomeFile1 to Dstore 12348
+Message received from port 12348: ACK
+ACK received from Dstore 12348 to store file SomeFile1
+Store of file SomeFile1 to Dstore 12348 successfully completed
+Timeout expired while reading from port 12345
+Message sent to port 12345: STORE File2 82
+Store operation started for file File2
+Message received from port 12345: STORE_TO 12346 12347 12348
+Controller replied to store File2 in these Dstores: 12346 12347 12348 
+Connection established to port 12346
+Message sent to port 12346: STORE File2 82
+Storing file File2 to Dstore 12346
+Message received from port 12346: ACK
+ACK received from Dstore 12346 to store file File2
+Store of file File2 to Dstore 12346 successfully completed
+Connection established to port 12347
+Message sent to port 12347: STORE File2 82
+Storing file File2 to Dstore 12347
+Message received from port 12347: ACK
+ACK received from Dstore 12347 to store file File2
+Store of file File2 to Dstore 12347 successfully completed
+Connection established to port 12348
+Message sent to port 12348: STORE File2 82
+Storing file File2 to Dstore 12348
+Message received from port 12348: ACK
+ACK received from Dstore 12348 to store file File2
+Store of file File2 to Dstore 12348 successfully completed
+Timeout expired while reading from port 12345
+Message sent to port 12345: STORE File3 71
+Store operation started for file File3
+Message received from port 12345: STORE_TO 12346 12347 12348
+Controller replied to store File3 in these Dstores: 12346 12347 12348 
+Connection established to port 12346
+Message sent to port 12346: STORE File3 71
+Storing file File3 to Dstore 12346
+Message received from port 12346: ACK
+ACK received from Dstore 12346 to store file File3
+Store of file File3 to Dstore 12346 successfully completed
+Connection established to port 12347
+Message sent to port 12347: STORE File3 71
+Storing file File3 to Dstore 12347
+Message received from port 12347: ACK
+ACK received from Dstore 12347 to store file File3
+Store of file File3 to Dstore 12347 successfully completed
+Connection established to port 12348
+Message sent to port 12348: STORE File3 71
+Storing file File3 to Dstore 12348
+Message received from port 12348: ACK
+ACK received from Dstore 12348 to store file File3
+Store of file File3 to Dstore 12348 successfully completed
+Timeout expired while reading from port 12345
+Message sent to port 12345: LIST
+List operation started
+Message received from port 12345: LIST[, , SomeFile1, SomeFile1, SomeFile1, File2, File2, File2, File3, File3, File3]
+ERROR: Connection closed by the Controller
+List operation failed

@@ -1,0 +1,5 @@
+Connection established to port 1234
+Message sent to port 1234: STORE File1 35
+Store operation started for file File1
+Message received from port 1234: ERROR_FILE_ALREADY_EXISTS
+File to store File1 already exists in the data store

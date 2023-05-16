@@ -1,0 +1,5 @@
+Connection established to port 1234
+Message sent to port 1234: LIST
+List operation started
+Timeout expired while reading from port 1234
+List operation failed

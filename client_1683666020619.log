@@ -1,0 +1,17 @@
+Connection established to port 1234
+Message sent to port 1234: LIST
+List operation started
+Timeout expired while reading from port 1234
+List operation failed
+Message sent to port 1234: STORE File1 35
+Store operation started for file File1
+Message received from port 1234: ERROR_NOT_ENOUGH_DSTORES
+ERROR: Not enough Dstores have joined the data store yet
+Message sent to port 1234: STORE File1 35
+Store operation started for file File1
+Message received from port 1234: ERROR_NOT_ENOUGH_DSTORES
+ERROR: Not enough Dstores have joined the data store yet
+Message sent to port 1234: STORE File2 82
+Store operation started for file File2
+Message received from port 1234: ERROR_NOT_ENOUGH_DSTORES
+ERROR: Not enough Dstores have joined the data store yet

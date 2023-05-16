@@ -1,0 +1,105 @@
+Connection established to port 12345
+Message sent to port 12345: STORE SomeFile1 35
+Store operation started for file SomeFile1
+Message received from port 12345: STORE_TO 12347 12346
+Controller replied to store SomeFile1 in these Dstores: 12347 12346 
+Connection established to port 12347
+Message sent to port 12347: STORE SomeFile1 35
+Storing file SomeFile1 to Dstore 12347
+Message received from port 12347: ACK
+ACK received from Dstore 12347 to store file SomeFile1
+Store of file SomeFile1 to Dstore 12347 successfully completed
+Connection established to port 12346
+Message sent to port 12346: STORE SomeFile1 35
+Storing file SomeFile1 to Dstore 12346
+Message received from port 12346: ACK
+ACK received from Dstore 12346 to store file SomeFile1
+Store of file SomeFile1 to Dstore 12346 successfully completed
+Timeout expired while reading from port 12345
+Message sent to port 12345: STORE File2 82
+Store operation started for file File2
+Message received from port 12345: STORE_TO 12347 12346
+Controller replied to store File2 in these Dstores: 12347 12346 
+Connection established to port 12347
+Message sent to port 12347: STORE File2 82
+Storing file File2 to Dstore 12347
+Message received from port 12347: ACK
+ACK received from Dstore 12347 to store file File2
+Store of file File2 to Dstore 12347 successfully completed
+Connection established to port 12346
+Message sent to port 12346: STORE File2 82
+Storing file File2 to Dstore 12346
+Message received from port 12346: ACK
+ACK received from Dstore 12346 to store file File2
+Store of file File2 to Dstore 12346 successfully completed
+Timeout expired while reading from port 12345
+Message sent to port 12345: STORE File3 71
+Store operation started for file File3
+Message received from port 12345: STORE_TO 12347 12346
+Controller replied to store File3 in these Dstores: 12347 12346 
+Connection established to port 12347
+Message sent to port 12347: STORE File3 71
+Storing file File3 to Dstore 12347
+Message received from port 12347: ACK
+ACK received from Dstore 12347 to store file File3
+Store of file File3 to Dstore 12347 successfully completed
+Connection established to port 12346
+Message sent to port 12346: STORE File3 71
+Storing file File3 to Dstore 12346
+Message received from port 12346: ACK
+ACK received from Dstore 12346 to store file File3
+Store of file File3 to Dstore 12346 successfully completed
+Timeout expired while reading from port 12345
+Message sent to port 12345: LOAD File2
+Load operation for file File2 started
+Message received from port 12345: LOAD_FROM 12347 82
+Controller replied to load file File2 (size: 82 bytes) from Dstore 12347
+Connection established to port 12347
+Message sent to port 12347: LOAD_DATA File2
+Loading file File2 from Dstore 12347
+Load operation of file File2 from Dstore 12347 successfully completed
+Message sent to port 12345: REMOVE File3
+Remove operation for file File3 started
+Timeout expired while reading from port 12345
+Remove operation for file File3 not completed successfully
+Message sent to port 12345: LIST
+List operation started
+Message received from port 12345: LIST File2 SomeFile1  
+List operation successfully completed
+Message sent to port 12345: LIST
+List operation started
+Message received from port 12345: LIST File2 SomeFile1  
+List operation successfully completed
+Message sent to port 12345: LOAD File2
+Load operation for file File2 started
+Message received from port 12345: LOAD_FROM 12347 82
+Controller replied to load file File2 (size: 82 bytes) from Dstore 12347
+Connection established to port 12347
+Message sent to port 12347: LOAD_DATA File2
+Loading file File2 from Dstore 12347
+Load operation of file File2 from Dstore 12347 successfully completed
+Message sent to port 12345: LOAD SomeFile1
+Load operation for file SomeFile1 started
+Message received from port 12345: LOAD_FROM 12347 35
+Controller replied to load file SomeFile1 (size: 35 bytes) from Dstore 12347
+Connection established to port 12347
+Message sent to port 12347: LOAD_DATA SomeFile1
+Loading file SomeFile1 from Dstore 12347
+Load operation of file SomeFile1 from Dstore 12347 successfully completed
+Message sent to port 12345: REMOVE File2
+Remove operation for file File2 started
+Timeout expired while reading from port 12345
+Remove operation for file File2 not completed successfully
+Message sent to port 12345: REMOVE SomeFile1
+Remove operation for file SomeFile1 started
+Timeout expired while reading from port 12345
+Remove operation for file SomeFile1 not completed successfully
+Message sent to port 12345: REMOVE File2
+Remove operation for file File2 started
+Message received from port 12345: ERROR_FILE_ALREADY_EXISTS
+ERROR: Unexpected message received. Expected message: REMOVE_COMPLETE
+Remove operation for file File2 not completed successfully
+Message sent to port 12345: LIST
+List operation started
+Message received from port 12345: LIST
+List operation successfully completed

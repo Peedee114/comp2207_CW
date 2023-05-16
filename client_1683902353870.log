@@ -1,0 +1,12 @@
+Connection established to port 1234
+Message sent to port 1234: STORE SomeFile1 35
+Store operation started for file SomeFile1
+Message received from port 1234: STORE_TO 1324
+Controller replied to store SomeFile1 in these Dstores: 1324 
+Connection established to port 1324
+Message sent to port 1324: STORE SomeFile1 35
+Storing file SomeFile1 to Dstore 1324
+Message received from port 1324: ACK
+ACK received from Dstore 1324 to store file SomeFile1
+Store of file SomeFile1 to Dstore 1324 successfully completed
+Timeout expired while reading from port 1234

@@ -1,0 +1,5 @@
+Connection established to port 12345
+Message sent to port 12345: STORE SomeFile1 35
+Store operation started for file SomeFile1
+Message received from port 12345: ERROR_NOT_ENOUGH_DSTORES
+ERROR: Not enough Dstores have joined the data store yet

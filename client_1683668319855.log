@@ -1,0 +1,11 @@
+Connection established to port 1234
+Message sent to port 1234: STORE File1 35
+Store operation started for file File1
+Message received from port 1234: STORE_TO 1324
+Controller replied to store File1 in these Dstores: 1324 
+Connection established to port 1324
+Message sent to port 1324: STORE File1 35
+Storing file File1 to Dstore 1324
+Timeout expired while reading from port 1324
+Store of file File1 to Dstore 1324 failed
+Timeout expired while reading from port 1234
