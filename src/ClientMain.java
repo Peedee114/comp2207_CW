@@ -14,7 +14,7 @@ public class ClientMain {
 
 		// change to integer.getArgs[] for testing on linux
 		final int cPort = 12345;
-		int timeout = 5000;
+		int timeout = 2000;
 
 		
 		// this client expects a 'downloads' folder in the current directory; all files loaded from the store will be stored in this folder
@@ -31,7 +31,7 @@ public class ClientMain {
 		testClient(cPort, timeout, downloadFolder, uploadFolder);
 
 
-		// launch a number of concurrent clients, each doing the same operations
+		 //launch a number of concurrent clients, each doing the same operations
 //		for (int i = 0; i < 10; i++) {
 //			new Thread() {
 //				public void run() {
@@ -76,6 +76,19 @@ public class ClientMain {
 			}
 			
 			try { list = list(client); } catch(IOException e) { e.printStackTrace(); }
+
+			try {client.store(new File("SomeFile1"));} catch (IOException e) {e.printStackTrace();}
+			try {client.store(new File("File2"));} catch (IOException e) {e.printStackTrace();}
+			try {client.store(new File("File3"));} catch (IOException e) {e.printStackTrace();}
+
+			try {client.load("SomeFile1",new File("src\\downloads"));} catch (IOException e) {e.printStackTrace();}
+
+			try{client.wrongLoad("File2",3);} catch (IOException e) {e.printStackTrace();}
+
+
+			try {client.remove("SomeFile1");} catch (IOException e) {e.printStackTrace();}
+
+
 			
 		} catch(IOException e) {
 			e.printStackTrace();
@@ -100,11 +113,27 @@ public class ClientMain {
 
 			try {client.store(new File("SomeFile1"));} catch (IOException e) {e.printStackTrace();}
       		try {client.store(new File("File2"));} catch (IOException e) {e.printStackTrace();}
-			try {client.store(new File("File3"));} catch (IOException e) {e.printStackTrace();}
+			  //try{client.wrongStore("File4", new byte[0]);} catch (IOException e) {e.printStackTrace();}
+			//try {client.store(new File("File3"));} catch (IOException e) {e.printStackTrace();}
+			//try {client.store(new File("File4"));} catch (IOException e) {e.printStackTrace();}
+			//try {client.store("");} catch (IOException e) {e.printStackTrace();}
+		//	try {client.store(new File("File5"));} catch (IOException e) {e.printStackTrace();}
+
+			//try{client.wrongStore("File5", new byte[0]);} catch (IOException e) {e.printStackTrace();}
+
 
 			try {client.load("File2",new File("src\\downloads"));} catch (IOException e) {e.printStackTrace();}
 
-			try {client.remove("File3");} catch (IOException e) {e.printStackTrace();}
+			//try{client.wrongLoad("SomeFile1",3);} catch (IOException e) {e.printStackTrace();}
+
+
+
+			try {client.remove("File2");} catch (IOException e) {e.printStackTrace();}
+
+			//try {client.remove("SomeFile1");} catch (IOException e) {e.printStackTrace();}
+			//try {client.remove("File2");} catch (IOException e) {e.printStackTrace();}
+
+
 
 
 

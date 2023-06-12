@@ -1,0 +1,13 @@
+Connection established to port 12345
+Message sent to port 12345: LIST
+List operation started
+Message received from port 12345: LIST
+List operation successfully completed
+Message sent to port 12345: LIST
+List operation started
+Message received from port 12345: LIST
+List operation successfully completed
+Message sent to port 12345: LIST
+List operation started
+Message received from port 12345: LIST
+List operation successfully completed

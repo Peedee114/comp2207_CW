@@ -2,6 +2,7 @@ import java.io.*;
 import java.net.InetAddress;
 import java.net.ServerSocket;
 import java.net.Socket;
+import java.nio.file.Files;
 import java.util.Arrays;
 import java.util.List;
 import java.util.logging.Logger;
@@ -38,19 +39,40 @@ public class Dstore {
         }
     }
 
-    private synchronized static void remove(PrintWriter pw, String filename) {
+    private static void emptyContent(String file_folder) {
+        File directory = new File(file_folder);
+        if(!directory.exists()){
+            directory.mkdir();
+        }
+        if(!(file_folder).isEmpty()){
+            clearDirectory(directory);
+            System.out.println("Directory cleared!");
+        }
+    }
+
+    private static void clearDirectory(File dir){
+        for(File file : dir.listFiles()){
+            file.delete();
+        }
+    }
+
+    private synchronized static void remove (PrintWriter pw, String filename) {
         File file = new File(file_folder + File.separator + filename);
         if (file.exists()) {
             if (file.delete()) {
                 System.out.println(filename + " has been deleted");
-                            }
+                pw.println(Protocol.REMOVE_ACK_TOKEN + " " + filename);
+                System.out.println(Protocol.REMOVE_ACK_TOKEN + " has been sent to Controller");
+            } else {
+                System.out.println("File not deleted!");
+             }
         } else {
             pw.println(Protocol.ERROR_FILE_DOES_NOT_EXIST_TOKEN + " " + filename);
             System.out.println(Protocol.ERROR_FILE_DOES_NOT_EXIST_TOKEN + " " + filename);
         }
     }
 
-    public synchronized static void list (PrintWriter pw) {
+    private synchronized static void list (PrintWriter pw) {
         String fileNames= " ";
         File fileFolder = new File(file_folder);
 
@@ -64,14 +86,13 @@ public class Dstore {
             System.out.println("List of Files: " + fileNames);
 
     }
-    public synchronized static void loadFileContent(String filename, OutputStream outputStream) {
+    private synchronized static void loadFileContent(String filename, OutputStream outputStream) {
         File file = new File(file_folder + File.separator + filename);
         try {
-            InputStream inputStream = new FileInputStream(file);
-            int fileContent;
-            while ((fileContent = inputStream.read()) != -1) {
+
+            byte[] fileContent = Files.readAllBytes(file.toPath());
                 outputStream.write(fileContent);
-            }
+
         } catch (FileNotFoundException e) {
             throw new RuntimeException(e);
         } catch (IOException e) {
@@ -96,6 +117,7 @@ public class Dstore {
         String fileFolder = args[3];
         setFileFolder(fileFolder);
 
+        emptyContent(fileFolder);
 
         try {
             ServerSocket serverSocket = new ServerSocket(dPort);    // listens for connections
@@ -105,7 +127,16 @@ public class Dstore {
                     Socket controller = new Socket(InetAddress.getLoopbackAddress(), cPort);   // talks to controller
                     // for sending messages to the controller
                     PrintWriter controllerOut = new PrintWriter(controller.getOutputStream(), true);
+                    BufferedReader controllerIn = new BufferedReader(new InputStreamReader(controller.getInputStream()));
                     controllerOut.println(Protocol.JOIN_TOKEN + " " + dPort);
+//                    String controllerLine;
+//                    while ((controllerLine = controllerIn.readLine()) != null) {
+//                        String[] command = controllerLine.split(" ");
+//                        if (command[0].equals(Protocol.REMOVE_TOKEN)) {
+//                            remove(controllerOut, command[1]);
+//                            //sending ACK to the controller
+//                        }
+//                    }
 
 
                     for (;;) {
@@ -142,11 +173,10 @@ public class Dstore {
                                             loadFileContent(messageContent[1], clientOutputStream);
 
                                         } else if (messageContent[0].equals(Protocol.REMOVE_TOKEN)) {
+                                            System.out.println("REMOVE received from Controller");
                                             remove(controllerOut, messageContent[1]);
-                                            //sending ACK to the controller
-                                            controllerOut.println(Protocol.REMOVE_ACK_TOKEN + " " + messageContent[1]);
-                                            System.out.println(Protocol.REMOVE_ACK_TOKEN + " has been sent to Controller");
-                                        } else {
+                                        }
+                                        else {
                                             System.out.println("INVALID MESSAGE: " + line);
                                         }
 
